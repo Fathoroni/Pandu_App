@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'kelas_page.dart';
 import 'notifikasi_page.dart';
+import 'profile_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,6 +17,7 @@ class _HomePageState extends State<HomePage> {
     _HomeDashboard(),
     KelasPage(),
     NotifikasiPage(),
+    ProfilePage(),
   ];
 
   void _onItemTapped(int index) {
@@ -36,6 +38,7 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.notifications),
             label: 'Notifikasi',
           ),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profil'),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,

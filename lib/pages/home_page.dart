@@ -259,6 +259,32 @@ class _HomeDashboard extends StatelessWidget {
                 progress: 0.5,
                 label: 'OS',
               ),
+              _buildProgressItem(
+                color: Colors.cyan,
+                title:
+                    'PEMROGRAMAN PERANGKAT BERGERAK MULTIMEDIA D4SM-41-GAB1 [APJ]',
+                progress: 0.6,
+                label: 'Mobile',
+              ),
+              _buildProgressItem(
+                color: Colors.grey,
+                title:
+                    'BAHASA INGGRIS: BUSINESS AND SCIENTIFIC D4SM-41-GAB1 [ARS]',
+                progress: 0.8,
+                label: 'Ing',
+              ),
+              _buildProgressItem(
+                color: Colors.blue[900]!,
+                title: 'PEMROGRAMAN MULTIMEDIA INTERAKTIF D4SM-43-04 [TPR]',
+                progress: 0.8,
+                label: 'MM',
+              ),
+              _buildProgressItem(
+                color: Colors.purpleAccent,
+                title: 'OLAH RAGA D3TT-44-02 [EYR]',
+                progress: 0.8,
+                label: 'OR',
+              ),
             ],
           ),
         ),

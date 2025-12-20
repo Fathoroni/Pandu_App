@@ -6,82 +6,132 @@ class MateriPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Pengantar Flutter')),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: const Text(
+          'Pengantar User Interface Design',
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Material Title
             const Text(
-              'Apa itu Flutter?',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
-              ),
-            ),
-            const SizedBox(height: 16),
-
-            // Material Description
-            const Text(
-              'Flutter adalah framework open source dari Google untuk membangun aplikasi multi-platform yang indah, dikompilasi secara native dari satu basis kode.\n\n'
-              'Dalam sesi ini, kita akan mempelajari konsep dasar widget, struktur project, dan bagaimana Flutter bekerja di belakang layarrendering engine Skia/Impeller.',
-              style: TextStyle(
-                fontSize: 16,
-                height: 1.5,
-                color: Colors.black54,
-              ),
-              textAlign: TextAlign.justify,
-            ),
-            const SizedBox(height: 32),
-
-            // Attachments Section
-            const Text(
-              'Materi Pendukung',
+              'Deskripsi',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
                 color: Colors.black87,
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 12),
+            const Text(
+              'Antarmuka yang dibangun harus memperhatikan prinsip-prinsip desain yang ada. Hal ini diharapkan agar antarmuka yang dibangun bukan hanya menarik secara visual tetapi dengan memperhatikan kaidah-kaidah prinsip desain diharapkan akan mendukung pengguna dalam menggunakan produk secara baik. Pelajaran mengenai prinsip UID ini sudah pernah diajarkan dalam mata kuliah Implementasi Desain Antarmuka Pengguna tetap pada matakuliah ini akan direview kembali sehingga dapat menjadi bekal saat memasukki materi mengenai User Experience',
+              style: TextStyle(
+                fontSize: 14,
+                height: 1.6,
+                color: Colors.black87,
+              ),
+              textAlign: TextAlign.justify,
+            ),
+            const SizedBox(height: 32),
+
+            // Tab Switcher (Mock Visual only as per image, content matches "Lampiran Materi")
+            Container(
+              decoration: const BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(color: Colors.grey, width: 0.5),
+                ),
+              ),
+              child: Row(
+                children: [
+                  Column(
+                    children: [
+                      const Text(
+                        'Lampiran Materi',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Colors.black,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Container(height: 3, width: 120, color: Colors.black),
+                    ],
+                  ),
+                  const SizedBox(width: 24),
+                  Column(
+                    children: [
+                      const Text(
+                        'Tugas dan Kuis',
+                        style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          fontSize: 16,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Container(
+                        height: 3,
+                        width: 120,
+                        color: Colors.transparent,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 24),
 
             // Attachment List
             _buildAttachmentItem(
-              icon: Icons.video_library,
-              color: Colors.red,
-              title: 'Video Pengantar',
-              subtitle: '10 Menit',
-              onTap: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Membuka Video...')),
-                );
-              },
+              icon: Icons.link,
+              title: 'Zoom Meeting Syncronous',
+              isCompleted: true,
             ),
-            const SizedBox(height: 12),
             _buildAttachmentItem(
-              icon: Icons.picture_as_pdf,
-              color: Colors.redAccent,
-              title: 'Slide Presentasi.pdf',
-              subtitle: '2.5 MB',
-              onTap: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Mengunduh PDF...')),
-                );
-              },
+              icon: Icons.description_outlined,
+              title: 'Pengantar User Interface Design',
+              isCompleted: true,
             ),
-            const SizedBox(height: 12),
+            _buildAttachmentItem(
+              icon: Icons.description_outlined,
+              title: 'Empat Teori Dasar Antarmuka Pengguna',
+              isCompleted: true,
+            ),
+            _buildAttachmentItem(
+              icon: Icons.description_outlined,
+              title: 'Empat Teori Dasar Antarmuka Pengguna',
+              isCompleted: true,
+            ),
+            _buildAttachmentItem(
+              icon: Icons.video_library_outlined,
+              title: 'User Interface Design for Beginner',
+              isCompleted: true,
+            ),
             _buildAttachmentItem(
               icon: Icons.link,
-              color: Colors.blue,
-              title: 'Dokumentasi Resmi',
-              subtitle: 'flutter.dev',
-              onTap: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Membuka Tautan...')),
-                );
-              },
+              title: '20 Prinsip Desain',
+              isCompleted: true,
+            ),
+            _buildAttachmentItem(
+              icon: Icons.link,
+              title: 'Best Practice UI Design',
+              isCompleted: true,
             ),
           ],
         ),
@@ -91,30 +141,41 @@ class MateriPage extends StatelessWidget {
 
   Widget _buildAttachmentItem({
     required IconData icon,
-    required Color color,
     required String title,
-    required String subtitle,
-    required VoidCallback onTap,
+    required bool isCompleted,
   }) {
-    return Card(
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-        side: BorderSide(color: Colors.grey.shade300),
-      ),
-      child: ListTile(
-        leading: Container(
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: color.withOpacity(0.1),
-            borderRadius: BorderRadius.circular(8),
+    return Container(
+      margin: const EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(30),
+        border: Border.all(color: Colors.grey.shade300),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            offset: const Offset(0, 2),
+            blurRadius: 5,
           ),
-          child: Icon(icon, color: color),
-        ),
-        title: Text(title, style: const TextStyle(fontWeight: FontWeight.w600)),
-        subtitle: Text(subtitle),
-        trailing: const Icon(Icons.download_rounded, color: Colors.grey),
-        onTap: onTap,
+        ],
+      ),
+      child: Row(
+        children: [
+          Icon(icon, size: 24, color: Colors.black87),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Text(
+              title,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                color: Colors.black87,
+              ),
+            ),
+          ),
+          if (isCompleted)
+            const Icon(Icons.check_circle, color: Color(0xFF00C853), size: 24),
+        ],
       ),
     );
   }

@@ -123,31 +123,10 @@ class KelasPage extends StatelessWidget {
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Material(
-                      color: Colors.transparent,
-                      child: InkWell(
-                        onTap: () {
-                          if (Navigator.canPop(context)) Navigator.pop(context);
-                        },
-                        borderRadius: BorderRadius.circular(50),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Icon(
-                            Icons.arrow_back,
-                            color: isDark
-                                ? Colors.white
-                                : const Color(0xFF1E293B),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
                   Text(
                     'Kelas Saya',
                     style: TextStyle(
-                      fontFamily: 'Plus Jakarta Sans',
+                      fontFamily: 'Poppins',
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: isDark ? Colors.white : const Color(0xFF1E293B),
@@ -244,6 +223,7 @@ class KelasPage extends StatelessWidget {
                                   child: Text(
                                     course['type'],
                                     style: TextStyle(
+                                      fontFamily: 'Inter',
                                       fontSize: 10,
                                       fontWeight: FontWeight.bold,
                                       color: isDark
@@ -269,7 +249,7 @@ class KelasPage extends StatelessWidget {
                                 color: Color(0xFF2563EB), // text-primary
                                 fontSize: 12, // text-xs
                                 fontWeight: FontWeight.w500,
-                                fontFamily: 'Plus Jakarta Sans',
+                                fontFamily: 'Inter',
                               ),
                             ),
                             const SizedBox(height: 2),
@@ -284,7 +264,7 @@ class KelasPage extends StatelessWidget {
                                 color: isDark
                                     ? Colors.white
                                     : const Color(0xFF1E293B),
-                                fontFamily: 'Plus Jakarta Sans',
+                                fontFamily: 'Poppins',
                               ),
                             ),
                             const SizedBox(height: 2),
@@ -297,7 +277,7 @@ class KelasPage extends StatelessWidget {
                                 color: isDark
                                     ? const Color(0xFF94A3B8)
                                     : const Color(0xFF64748B), // text-sub
-                                fontFamily: 'Plus Jakarta Sans',
+                                fontFamily: 'Inter',
                               ),
                             ),
 
@@ -334,7 +314,7 @@ class KelasPage extends StatelessWidget {
                                     color: isDark
                                         ? const Color(0xFF94A3B8)
                                         : const Color(0xFF64748B),
-                                    fontFamily: 'Plus Jakarta Sans',
+                                    fontFamily: 'Inter',
                                   ),
                                 ),
                                 Text(
@@ -343,7 +323,7 @@ class KelasPage extends StatelessWidget {
                                     fontSize: 10,
                                     fontWeight: FontWeight.w600,
                                     color: isDark ? Colors.blue[400] : primary,
-                                    fontFamily: 'Plus Jakarta Sans',
+                                    fontFamily: 'Inter',
                                   ),
                                 ),
                               ],

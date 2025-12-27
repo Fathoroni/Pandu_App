@@ -199,41 +199,53 @@ class _HomeDashboard extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
-                  padding: const EdgeInsets.only(
-                    left: 16,
-                    right: 4,
-                    top: 4,
-                    bottom: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(50), // rounded-full
-                    border: Border.all(color: Colors.white.withOpacity(0.3)),
-                  ),
-                  child: Row(
-                    children: [
-                      const Text(
-                        'MAHASISWA',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 11, // text-xs gives ~12, but tracking wide
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: 0.5,
-                        ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ProfilePage(),
                       ),
-                      const SizedBox(width: 8),
-                      Container(
-                        width: 32,
-                        height: 32,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.white, width: 2),
+                    );
+                  },
+                  borderRadius: BorderRadius.circular(50),
+                  child: Container(
+                    padding: const EdgeInsets.only(
+                      left: 16,
+                      right: 4,
+                      top: 4,
+                      bottom: 4,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(50), // rounded-full
+                      border: Border.all(color: Colors.white.withOpacity(0.3)),
+                    ),
+                    child: Row(
+                      children: [
+                        const Text(
+                          'MAHASISWA',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize:
+                                11, // text-xs gives ~12, but tracking wide
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 0.5,
+                          ),
                         ),
-                        child: Icon(Icons.person, color: primary, size: 20),
-                      ),
-                    ],
+                        const SizedBox(width: 8),
+                        Container(
+                          width: 32,
+                          height: 32,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.white, width: 2),
+                          ),
+                          child: Icon(Icons.person, color: primary, size: 20),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
